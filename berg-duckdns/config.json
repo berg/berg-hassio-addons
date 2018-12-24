@@ -1,0 +1,33 @@
+{
+  "name": "Duck DNS (+berg)",
+  "version": "1.5",
+  "slug": "berg-duckdns",
+  "description": "Free Dynamic DNS (DynDNS or DDNS) service with Let's Encrypt support",
+  "url": "https://www.home-assistant.io/addons/duckdns/",
+  "startup": "services",
+  "boot": "auto",
+  "host_network": true,
+  "map": ["ssl:rw"],
+  "options": {
+    "lets_encrypt": {
+      "accept_terms": false,
+      "certfile": "fullchain.pem",
+      "keyfile": "privkey.pem"
+    },
+    "token": null,
+    "domains": [null],
+    "internal_domains": [null],
+    "seconds": 300
+  },
+  "schema": {
+    "lets_encrypt": {
+      "accept_terms": "bool",
+      "certfile": "str",
+      "keyfile": "str"
+    },
+    "token": "str",
+    "domains": ["str"],
+    "internal_domains": ["str"],
+    "seconds": "int"
+  }
+}
