@@ -15,9 +15,8 @@ tmpfs: true
 startup: once
 boot: manual
 options:
-  rclone: {}
-  purge:
-    days: 31
+  rclone_remotes: []
+  purge_days: 31
 schema:
   rclone_config: "str"
   rclone_remotes: [{"definition": "str", "extra_args": "str"}]
