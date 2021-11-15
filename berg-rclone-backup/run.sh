@@ -6,15 +6,13 @@ CONFIG_FILE="/data/options.json"
 
 bashio::log.info "Backup beginning at $(date)"
 
-bashio::config.require 'rclone'
 bashio::config.require 'rclone_config'
+bashio::config.require 'rclone_remotes'
 
 bashio::log.info "Writing config"
 
 # can't use bashio::config here because it eats newlines
 jq -r '.rclone_config' "${CONFIG_FILE}" > /tmp/rclone.conf
-
-bashio::config.require 'rclone_remotes'
 
 remote_indexes=$(jq -r '.rclone_remotes | keys[]' "${CONFIG_FILE}")
 for index in ${remote_indexes}; do

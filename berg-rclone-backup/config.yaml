@@ -1,5 +1,5 @@
 name: hassio rclone backups
-version: 2
+version: 3
 slug: berg-rclone-backup
 description: "Backup Home Assistant with rclone"
 url: https://github.com/berg/berg-hassio-addons
@@ -19,5 +19,5 @@ options:
   purge_days: 31
 schema:
   rclone_config: "str"
-  rclone_remotes: [{"definition": "str", "extra_args": "str"}]
-  purge_days: "int"
+  rclone_remotes: [{"definition": "str", "extra_args": "str?"}]
+  purge_days: "int?"
