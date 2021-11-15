@@ -19,8 +19,6 @@ options:
   purge:
     days: 31
 schema:
-  rclone:
-    config: "str"
-    remotes: [{"definition": "str", "extra_args": "str"}]
-  purge:
-    days: "int"
+  rclone_config: "str"
+  rclone_remotes: [{"definition": "str", "extra_args": "str"}]
+  purge_days: "int"
