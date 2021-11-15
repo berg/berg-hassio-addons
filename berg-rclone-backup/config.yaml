@@ -1,0 +1,26 @@
+name: hassio rclone backups
+version: 1
+slug: berg-rclone-backup
+description: "Backup Home Assistant with rclone"
+url: https://github.com/berg/berg-hassio-addons
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
+map:
+  - backup:rw
+tmpfs: true
+startup: once
+boot: manual
+options:
+  rclone: {}
+  purge:
+    days: 31
+schema:
+  rclone:
+    config: "str"
+    remotes: [{"definition": "str", "extra_args": "str"}]
+  purge:
+    days: "int"
