@@ -14,6 +14,8 @@ bashio::log.info "Writing config"
 # can't use bashio::config here because it eats newlines
 jq -r '.rclone_config' "${CONFIG_FILE}" > /tmp/rclone.conf
 
+curl -sSL -H "Authorization: Bearer $SUPERVISOR_TOKEN" http://supervisor/backups > /backup/backup-metadata.json
+
 remote_indexes=$(jq -r '.rclone_remotes | keys[]' "${CONFIG_FILE}")
 for index in ${remote_indexes}; do
     config_base="rclone_remotes[${index}]"
@@ -39,7 +41,7 @@ done
 
 if bashio::config.has_value 'purge_days'; then
     days=$(bashio::config 'purge_days')
-    bashio::log.info "Purging backups older than ${days} from disk..."
+    bashio::log.info "Purging backups older than ${days} days from disk..."
 
     find /backup -type f -mtime +"${days}" -exec rm {} \;
 fi
