@@ -16,6 +16,7 @@ startup: once
 boot: manual
 hassio_role: backup
 hassio_api: true
+init: false
 options: {}
 schema:
   rclone_config: "str"
