@@ -1,5 +1,5 @@
 name: hassio rclone backups
-version: 7
+version: 8
 slug: rclonebackup
 description: "Backup Home Assistant with rclone"
 url: https://github.com/berg/berg-hassio-addons
